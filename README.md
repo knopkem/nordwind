@@ -1,11 +1,11 @@
-# Tufão - an asynchronous web framework for C++ built on top of Qt
+# Nordwind - fork of tufao
 
-Tufão is a web framework for C++ that makes use of Qt's object communication
+Web framework for C++ that makes use of Qt's object communication
 system (signals & slots). It features:
 
   * High performance standalone server
   * Cross-plataform support
-  * Good [documentation](http://vinipsmaker.github.com/tufao/ref/)
+  * Good documentation
   * Support modern HTTP features
     * Persistent streams
     * Chunked entities
@@ -254,17 +254,8 @@ Version 0.2:
 
 ## ROADMAP
 
-Here is a small roadmap for Tufão:
 
-0.7:
+0.9
 
-  * Better (and easier) multi-thread support
-
-0.8:
-
-  * RPC support
-  * Service discovery and description support
-
-1.1:
-
-  * Forms and file uploads
+  * multi-thread support
+  * back-porting features from 1.x version
