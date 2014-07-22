@@ -1,4 +1,10 @@
-# Nordwind - fork of tufao
+# Nordwind - fork of tufao (WORK IN PROGRESS - do not use)
+
+## FORKING REASONS
+
+The original tufao project maintains 2 branches (for Qt 4 and 5), however the Qt5 version while more advanced is not compatible to Visual Studio anymore (this is mainly due to heavy use of C++11 featues which are only partially supported by VS (at least until now). The fork wants to bring back VS support and keep maintaining the project.
+
+## ABOUT
 
 Web framework for C++ that makes use of Qt's object communication
 system (signals & slots). It features:
