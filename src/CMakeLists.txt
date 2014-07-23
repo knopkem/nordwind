@@ -1,6 +1,3 @@
-if (NOT USE_QT5)
-    include(${QT_USE_FILE})
-endif()
 
 # Source files
 set(tufao_SRC
@@ -61,27 +58,15 @@ else (DISABLE_EXCEPTIONS)
     add_definitions(-DEXCEPTIONS_ON=1)
 endif (DISABLE_EXCEPTIONS)
 
-if (USE_QT5)
-    qt5_wrap_cpp(tufao_MOC ${tufao_MOC_HDRS}
-        OPTIONS
-        "-DQT_VERSION_MAJOR=${Qt5Core_VERSION_MAJOR}"
-        "-DQT_VERSION_MINOR=${Qt5Core_VERSION_MINOR}"
-        "-DQT_VERSION_PATCH=${Qt5Core_VERSION_PATCH}"
-    )
+qt5_wrap_cpp(tufao_MOC ${tufao_MOC_HDRS}
+    OPTIONS
+    "-DQT_VERSION_MAJOR=${Qt5Core_VERSION_MAJOR}"
+    "-DQT_VERSION_MINOR=${Qt5Core_VERSION_MINOR}"
+    "-DQT_VERSION_PATCH=${Qt5Core_VERSION_PATCH}"
+)
 
-    add_library("${TUFAO_LIBRARY}" SHARED ${tufao_SRC} ${tufao_MOC})
-    qt5_use_modules("${TUFAO_LIBRARY}" Core Network)
-else (USE_QT5)
-    qt4_wrap_cpp(tufao_MOC ${tufao_MOC_HDRS}
-        OPTIONS
-        "-DQT_VERSION_MAJOR=${QT_VERSION_MAJOR}"
-        "-DQT_VERSION_MINOR=${QT_VERSION_MINOR}"
-        "-DQT_VERSION_PATCH=${QT_VERSION_PATCH}"
-    )
-
-    add_library("${TUFAO_LIBRARY}" SHARED ${tufao_SRC} ${tufao_MOC})
-    target_link_libraries("${TUFAO_LIBRARY}" ${QT_LIBRARIES})
-endif (USE_QT5)
+add_library("${TUFAO_LIBRARY}" SHARED ${tufao_SRC} ${tufao_MOC})
+qt5_use_modules("${TUFAO_LIBRARY}" Core Network)
 
 set_target_properties(
     "${TUFAO_LIBRARY}"
